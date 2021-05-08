@@ -2,8 +2,10 @@
 
 #include <Windows.h>
 #include <tchar.h>
+#include "resource.h"
+
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
-LPCTSTR WindowClassName = _T(LearningChapter " Class");
+LPCTSTR WindowClassName = _T(LearningChapter) _T(" Class");
 LPCTSTR WindowTitleName = _T(LearningChapter);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int nCmdShow)
@@ -19,7 +21,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	WndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 	WndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 	WndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
-	WndClass.lpszMenuName = NULL;
+	WndClass.lpszMenuName = MAKEINTRESOURCE(IDR_MENU4_1);
 	WndClass.lpszClassName = WindowClassName;
 
 	RegisterClass(&WndClass);
