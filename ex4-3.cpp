@@ -1,8 +1,8 @@
-#define LearningChapter "ex0-0"
+#define LearningChapter "ex4-3"
 
 #include <Windows.h>
 #include <tchar.h>
-//#include "resource.h"
+#include "resource.h"
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 static LPCTSTR WindowClassName = _T(LearningChapter) _T(" Class");
@@ -23,13 +23,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	WndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 	WndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 	WndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
-	WndClass.lpszMenuName = NULL;//MAKEINTRESOURCE(IDR_MENU0_0);
+	WndClass.lpszMenuName = MAKEINTRESOURCE(IDR_MENU4_2);
 	WndClass.lpszClassName = WindowClassName;
 
 	RegisterClass(&WndClass);
 	hwnd = CreateWindow(WindowClassName, WindowTitleName,
 		WS_OVERLAPPEDWINDOW,
-		WindowPosition[0], WindowPosition[1], 
+		WindowPosition[0], WindowPosition[1],
 		WindowSize[0], WindowSize[1],
 		NULL, NULL, hInstance, NULL
 	);
@@ -49,6 +49,24 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	switch (iMsg) {
 	case WM_CREATE:
 		return 0;
+	case WM_COMMAND:
+		switch (LOWORD(wParam))
+		{
+		case ID_FILENEW:
+			MessageBox(hwnd,
+				_T("새 파일을 여시겠습니까?"),
+				_T("새 파일 선택"),
+				MB_OKCANCEL);
+			break;
+		case ID_EXIT:
+			int answer = MessageBox(hwnd,
+				_T("파일을 저장하고 끝내겠습니까?"),
+				_T("끝내기 선택"),
+				MB_YESNOCANCEL);
+			if (answer == IDYES || answer == IDNO)
+				PostQuitMessage(0);
+			break;
+		}
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
