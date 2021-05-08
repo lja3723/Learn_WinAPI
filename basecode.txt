@@ -1,10 +1,9 @@
-#define LearningChapter "ex4-1"
-
 #include <Windows.h>
 #include <tchar.h>
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
-LPCTSTR WindowClassName = _T(LearningChapter " Class");
-LPCTSTR WindowTitleName = _T(LearningChapter);
+
+LPCTSTR WindowClassName = _T("Window Class Name");
+LPCTSTR WindowTitleName = _T("ex4-1");
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int nCmdShow)
 {
