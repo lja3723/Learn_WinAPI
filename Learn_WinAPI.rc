@@ -59,8 +59,16 @@ BEGIN
         MENUITEM "저장",                          ID_FILESAVE
         MENUITEM "끝내기",                         ID_EXIT
     END
-    MENUITEM "편집",                          65535
-    MENUITEM "도움말",                         65535
+    POPUP "편집"
+    BEGIN
+        MENUITEM "취소하기",                        ID_EDITUNDO
+        MENUITEM "복사하기",                        ID_EDITCOPY
+        MENUITEM "붙여넣기",                        ID_EDITPASTE
+    END
+    POPUP "도움말"
+    BEGIN
+        MENUITEM "프로그램 정보",                     ID_INFORM
+    END
 END
 
 #endif    // 한국어(대한민국) resources
