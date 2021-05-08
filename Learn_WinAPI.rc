@@ -50,16 +50,17 @@ END
 // Menu
 //
 
-IDR_MENU1 MENU
+IDR_MENU4_1 MENU
 BEGIN
     POPUP "파일"
     BEGIN
-        MENUITEM "새글",                          ID_40002
-        MENUITEM "열기",                          ID_40003
-        MENUITEM "저장",                          ID_40004
-        MENUITEM "끝내기",                         ID_40005
+        MENUITEM "새 글",                         ID_FILENEW
+        MENUITEM "열기",                          ID_FILEOPEN
+        MENUITEM "저장",                          ID_FILESAVE
+        MENUITEM "끝내기",                         ID_EXIT
     END
-    MENUITEM "편집",                          0
+    MENUITEM "편집",                          65535
+    MENUITEM "도움말",                         65535
 END
 
 #endif    // 한국어(대한민국) resources
