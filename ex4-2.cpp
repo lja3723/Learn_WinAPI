@@ -5,8 +5,10 @@
 #include "resource.h"
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
-LPCTSTR WindowClassName = _T(LearningChapter) _T(" Class");
-LPCTSTR WindowTitleName = _T(LearningChapter);
+static LPCTSTR WindowClassName = _T(LearningChapter) _T(" Class");
+static LPCTSTR WindowTitleName = _T(LearningChapter);
+static const int WindowPosition[2] = { 400, 200 };
+static const int WindowSize[2] = { 720, 480 };
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int nCmdShow)
 {
@@ -27,7 +29,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	RegisterClass(&WndClass);
 	hwnd = CreateWindow(WindowClassName, WindowTitleName,
 		WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+		WindowPosition[0], WindowPosition[1], 
+		WindowSize[0], WindowSize[1],
 		NULL, NULL, hInstance, NULL
 	);
 
