@@ -2,7 +2,7 @@
 // Microsoft Visual C++에서 생성한 포함 파일입니다.
 // Learn_WinAPI.rc에서 사용되고 있습니다.
 //
-#define IDR_MENU4_2                     101
+#define IDR_MENU4_4                     101
 #define ID_FILENEW                      40001
 #define ID_FILEOPEN                     40002
 #define ID_FILESAVE                     40003

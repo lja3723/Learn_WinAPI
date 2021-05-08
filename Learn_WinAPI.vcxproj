@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ex4-3.cpp" />
+    <ClCompile Include="ex4-4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="basecode.txt" />
