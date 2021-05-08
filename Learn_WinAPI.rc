@@ -60,6 +60,7 @@ BEGIN
         MENUITEM "끝내기",                         ID_40005
     END
     MENUITEM "편집",                          0
+    MENUITEM "도움말",                         0
 END
 
 #endif    // 한국어(대한민국) resources
