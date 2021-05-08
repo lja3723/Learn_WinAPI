@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="basecode.txt">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="ex4-1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
