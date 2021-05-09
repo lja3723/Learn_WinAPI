@@ -117,6 +117,17 @@ BEGIN
     END
 END
 
+IDR_MENU6_3 MENU
+BEGIN
+    MENUITEM "파일",                          ID_FILE
+    MENUITEM "편집",                          ID_EDIT
+    MENUITEM "도움말",                         ID_INFO
+    POPUP "대화상자"
+    BEGIN
+        MENUITEM "실습6-3 대화상자",                  ID_6_3_MENU
+    END
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -139,6 +150,16 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "출력하기",ID_BUTTON_PRINT,198,155,50,14
     PUSHBUTTON      "끝내기",ID_BUTTON_END,252,155,50,14
+END
+
+IDD_DIALOG6_3 DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "예제6-3 Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "시작",ID_START,51,154,50,15
+    PUSHBUTTON      "정지",ID_PAUSE,130,154,52,15
+    PUSHBUTTON      "종료",ID_CLOSE,207,153,50,16
 END
 
 
@@ -165,6 +186,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 169
     END
+
+    IDD_DIALOG6_3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -180,6 +209,11 @@ BEGIN
 END
 
 IDD_DIALOG6_2 AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DIALOG6_3 AFX_DIALOG_LAYOUT
 BEGIN
     0
 END
