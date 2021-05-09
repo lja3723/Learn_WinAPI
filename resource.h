@@ -5,15 +5,29 @@
 #define IDR_MENU4_5                     101
 #define IDR_MENU4_7                     102
 #define IDR_MENU4_9                     103
-#define IDD_DIALOG6_1                   104
-#define IDD_DIALOG6_2                   105
-#define IDR_MENU6_3                     106
+#define IDR_MENU6_3                     104
+#define IDD_DIALOG6_1                   105
+#define IDD_DIALOG6_2                   106
 #define IDD_DIALOG6_3                   107
+#define IDD_DIALOG6_4                   108
+#define IDD_DIALOG6_5                   109
+#define IDD_DIALOG6_6                   110
+#define IDD_DIALOG6_7                   111
+#define IDD_DIALOG6_8                   112
+#define IDD_DIALOG6_9                   113
+#define IDD_DIALOG6_10                  114
+#define IDD_DIALOG6_11                  115
+#define IDD_DIALOG6_12                  116
+#define IDD_DIALOG6_13                  117
 #define ID_BUTTON_PRINT                 1001
 #define ID_BUTTON_END                   1002
 #define ID_START                        1003
 #define ID_PAUSE                        1004
-#define ID_CLOSE                        1006
+#define ID_CLOSE                        1005
+#define IDC_EDIT_SOURCE                 1006
+#define IDC_EDIT_COPY                   1007
+#define ID_BUTTON_COPY                  1008
+#define ID_BUTTON_CLEAR                 1009
 #define ID_FILENEW                      40001
 #define ID_FILEOPEN                     40002
 #define ID_FILESAVE                     40003
@@ -28,24 +42,24 @@
 #define ID_EDIT                         40012
 #define ID_INFO                         40013
 #define ID_6_3_MENU                     40014
-#define ID_40015                        40015
-#define ID_40016                        40016
-#define ID_40017                        40017
-#define ID_40018                        40018
-#define ID_40019                        40019
-#define ID_40020                        40020
-#define ID_40021                        40021
-#define ID_40022                        40022
-#define ID_40023                        40023
-#define ID_40024                        40024
+#define ID_6_4_MENU                     40015
+#define ID_6_5_MENU                     40016
+#define ID_6_6_MENU                     40017
+#define ID_6_7_MENU                     40018
+#define ID_6_8_MENU                     40019
+#define ID_6_9_MENU                     40020
+#define ID_6_10_MENU                    40021
+#define ID_6_11_MENU                    40022
+#define ID_6_12_MENU                    40023
+#define ID_6_13_MENU                    40024
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        109
+#define _APS_NEXT_RESOURCE_VALUE        118
 #define _APS_NEXT_COMMAND_VALUE         40025
-#define _APS_NEXT_CONTROL_VALUE         1007
+#define _APS_NEXT_CONTROL_VALUE         1011
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
