@@ -139,9 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ex4-10.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="basecode.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Learn_WinAPI.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ex6-1.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

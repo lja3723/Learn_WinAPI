@@ -33,7 +33,7 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex4-10.cpp">
+    <ClCompile Include="ex6-1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
