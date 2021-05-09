@@ -3,6 +3,7 @@
 // Learn_WinAPI.rc에서 사용되고 있습니다.
 //
 #define IDR_MENU4_5                     101
+#define IDR_MENU4_7                     102
 #define ID_FILENEW                      40001
 #define ID_FILEOPEN                     40002
 #define ID_FILESAVE                     40003
@@ -11,13 +12,15 @@
 #define ID_EDITPASTE                    40006
 #define ID_INFORM                       40007
 #define ID_EXIT                         40008
+#define ID_FONTDLG                      40009
+#define ID_COLORDLG                     40010
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        102
-#define _APS_NEXT_COMMAND_VALUE         40009
+#define _APS_NEXT_RESOURCE_VALUE        103
+#define _APS_NEXT_COMMAND_VALUE         40013
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
