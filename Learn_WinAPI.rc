@@ -125,6 +125,16 @@ BEGIN
     POPUP "대화상자"
     BEGIN
         MENUITEM "실습6-3 대화상자",                  ID_6_3_MENU
+        MENUITEM "실습6-4 대화상자",                  ID_40015
+        MENUITEM "실습6-5 대화상자",                  ID_40016
+        MENUITEM "실습6-6 대화상자",                  ID_40017
+        MENUITEM "실습6-7 대화상자",                  ID_40018
+        MENUITEM "실습6-8 대화상자",                  ID_40019
+        MENUITEM "실습6-9 대화상자",                  ID_40020
+        MENUITEM "실습6-10 대화상자",                 ID_40021
+        MENUITEM "실습6-11 대화상자",                 ID_40022
+        MENUITEM "실습6-12 대화상자",                 ID_40023
+        MENUITEM "실습6-13 대화상자",                 ID_40024
     END
 END
 
