@@ -1,4 +1,5 @@
 #define LearningChapter "ex0-0"
+//page xxx
 
 #include <Windows.h>
 #include <tchar.h>

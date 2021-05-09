@@ -94,6 +94,29 @@ BEGIN
     END
 END
 
+IDR_MENU4_9 MENU
+BEGIN
+    POPUP "파일"
+    BEGIN
+        MENUITEM "새 글",                         ID_FILENEW
+        MENUITEM "열기",                          ID_FILEOPEN
+        MENUITEM "저장",                          ID_FILESAVE
+        MENUITEM "끝내기",                         ID_EXIT
+    END
+    POPUP "편집"
+    BEGIN
+        MENUITEM "취소하기",                        ID_EDITUNDO
+        MENUITEM "복사하기",                        ID_EDITCOPY
+        MENUITEM "붙여넣기",                        ID_EDITPASTE
+    END
+    POPUP "도움말"
+    BEGIN
+        MENUITEM "프로그램 정보",                     ID_INFORM
+        MENUITEM "글꼴 변경",                       ID_FONTDLG
+        MENUITEM "색상 변경",                       ID_COLORDLG
+    END
+END
+
 #endif    // 한국어(대한민국) resources
 /////////////////////////////////////////////////////////////////////////////
 
