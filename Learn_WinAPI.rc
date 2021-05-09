@@ -50,7 +50,7 @@ END
 // Menu
 //
 
-IDR_MENU4_4 MENU
+IDR_MENU4_5 MENU
 BEGIN
     POPUP "ÆÄÀÏ"
     BEGIN
