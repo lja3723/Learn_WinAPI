@@ -28,6 +28,13 @@
 #define IDC_EDIT_COPY                   1007
 #define ID_BUTTON_COPY                  1008
 #define ID_BUTTON_CLEAR                 1009
+#define IDC_RADIO_FEMALE                1011
+#define IDC_RADIO_MALE                  1012
+#define IDC_CHECK_READING               1015
+#define IDC_CHECK_MUSIC                 1016
+#define IDC_CHECK_INTERNET              1017
+#define IDC_BUTTON_OUTPUT               1018
+#define IDC_EDIT_OUTPUT                 1020
 #define ID_FILENEW                      40001
 #define ID_FILEOPEN                     40002
 #define ID_FILESAVE                     40003
@@ -59,7 +66,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        118
 #define _APS_NEXT_COMMAND_VALUE         40025
-#define _APS_NEXT_CONTROL_VALUE         1011
+#define _APS_NEXT_CONTROL_VALUE         1021
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
