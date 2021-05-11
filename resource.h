@@ -35,6 +35,10 @@
 #define IDC_CHECK_INTERNET              1017
 #define IDC_BUTTON_OUTPUT               1018
 #define IDC_EDIT_OUTPUT                 1020
+#define IDC_BUTTON_INSERT               1021
+#define IDC_BUTTON_DELETE               1022
+#define IDC_EDIT_NAME                   1023
+#define IDC_COMBO_LIST                  1024
 #define ID_FILENEW                      40001
 #define ID_FILEOPEN                     40002
 #define ID_FILESAVE                     40003
@@ -66,7 +70,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        118
 #define _APS_NEXT_COMMAND_VALUE         40025
-#define _APS_NEXT_CONTROL_VALUE         1021
+#define _APS_NEXT_CONTROL_VALUE         1025
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
