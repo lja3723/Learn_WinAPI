@@ -136,8 +136,29 @@ BOOL CALLBACK Dlg6_6Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		hCombo = GetDlgItem(hDlg, IDC_COMBO_LIST);
 		return TRUE;
 	case WM_COMMAND:
+	
+		if (HIWORD(wParam) == EN_CHANGE)
+		{
+			TCHAR tmp[512];
+			GetDlgItemText(hDlg, IDC_EDIT_NAME, tmp, sizeof(tmp) / sizeof(TCHAR));
+			//if (tmp[_tcslen(tmp) - 1] == _T('\n'))
+			if (tmp[_tcslen(tmp) - 2] == VK_RETURN)	//위 주석과 같은 뜻!
+			{
+				SendMessage(hDlg, WM_COMMAND, (WPARAM)IDC_BUTTON_INSERT, 0);
+				SetDlgItemText(hDlg, IDC_EDIT_NAME, _T(""));
+			}
+		}
 		switch (LOWORD(wParam))
 		{
+			//backdoor code
+		case IDC_BUTTON_COUNTCLR:
+		{
+			TCHAR str[100];
+			_stprintf_s(str, sizeof(str) / sizeof(TCHAR), _T("EN_CHANGE(%d)"), (count_en_change = -1) + 1);
+			SetDlgItemText(hDlg, IDC_TEXT_DEBUG1, str);
+		}
+			break;
+			//backdoor code end
 		case IDC_BUTTON_INSERT:
 			GetDlgItemText(hDlg, IDC_EDIT_NAME, name, sizeof(name));
 			if (_tcscmp(name, _T("")) != 0)
