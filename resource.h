@@ -45,6 +45,7 @@
 #define IDC_TEXT_DEBUG4                 1028
 #define IDC_TEXT_DEBUG5                 1029
 #define IDC_BUTTON_COUNTCLR             1030
+#define IDC_LIST_NAME                   1031
 #define ID_FILENEW                      40001
 #define ID_FILEOPEN                     40002
 #define ID_FILESAVE                     40003
@@ -76,7 +77,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        118
 #define _APS_NEXT_COMMAND_VALUE         40025
-#define _APS_NEXT_CONTROL_VALUE         1031
+#define _APS_NEXT_CONTROL_VALUE         1032
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
