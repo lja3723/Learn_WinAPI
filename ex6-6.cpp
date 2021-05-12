@@ -128,7 +128,7 @@ BOOL CALLBACK Dlg6_6Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
 	static HWND hCombo;
 	static int selection;
-	TCHAR name[20];
+	TCHAR name[50];
 
 	switch (iMsg)
 	{
@@ -139,19 +139,22 @@ BOOL CALLBACK Dlg6_6Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	
 		if (HIWORD(wParam) == EN_CHANGE)
 		{
-			TCHAR tmp[512];
-			GetDlgItemText(hDlg, IDC_EDIT_NAME, tmp, sizeof(tmp) / sizeof(TCHAR));
-			//if (tmp[_tcslen(tmp) - 1] == _T('\n'))
-			if (tmp[_tcslen(tmp) - 2] == VK_RETURN)	//위 주석과 같은 뜻!
+			TCHAR edit_text[50];
+			GetDlgItemText(hDlg, IDC_EDIT_NAME, edit_text, sizeof(edit_text) / sizeof(TCHAR));
+			//if (edit_text[_tcslen(edit_text) - 1] == _T('\n'))
+			if (edit_text[_tcslen(edit_text) - 2] == VK_RETURN)	//위 주석과 같은 뜻!
 			{
+				edit_text[_tcslen(edit_text) - 2] = _T('\0');
 				SendMessage(hDlg, WM_COMMAND, (WPARAM)IDC_BUTTON_INSERT, 0);
-				SetDlgItemText(hDlg, IDC_EDIT_NAME, _T(""));
 			}
+			//Edit 컨트롤에서 Enter키 처리법->
+			//반환 설정 | 여러 줄 | 자동 VScroll ->이 세 옵션을 True로 설정한다!!
 		}
 		switch (LOWORD(wParam))
 		{
 		case IDC_BUTTON_INSERT:
 			GetDlgItemText(hDlg, IDC_EDIT_NAME, name, sizeof(name));
+			SetDlgItemText(hDlg, IDC_EDIT_NAME, _T(""));
 			if (_tcscmp(name, _T("")) != 0)
 				SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)name);
 			return FALSE;
