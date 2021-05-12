@@ -138,6 +138,19 @@ BOOL CALLBACK Dlg6_6Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
 		{
+		case IDC_BUTTON_INSERT:
+			GetDlgItemText(hDlg, IDC_EDIT_NAME, name, sizeof(name));
+			if (_tcscmp(name, _T("")) != 0)
+				SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)name);
+			return FALSE;
+		case IDC_BUTTON_DELETE:
+			SendMessage(hCombo, CB_DELETESTRING, selection, 0);
+			return FALSE;
+		case IDC_COMBO_LIST:
+			if (HIWORD(wParam) == CBN_SELCHANGE)
+				selection = SendMessage(hCombo, CB_GETCURSEL, 0, 0);
+			//MessageBox(hDlg, _T("LDC_COMBO_LIST 메시지 발생"), _T(""), MB_OK);
+			break;
 		case IDCANCEL:
 			EndDialog(hDlg, 0);
 			break;
