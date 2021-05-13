@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <tchar.h>
 #include <stdio.h>
+#include <CommCtrl.h>
 #include "resource.h"
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
@@ -36,7 +37,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	WndClass.hInstance = hInstance;
 	WndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 	WndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
-	WndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+	WndClass.hbrBackground = CreateSolidBrush(RGB(156, 156, 165));
 	WndClass.lpszMenuName = MAKEINTRESOURCE(IDR_MENU6_3);
 	WndClass.lpszClassName = WindowClassName;
 
@@ -134,11 +135,30 @@ BOOL CALLBACK Dlg6_xProc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 }
 */
 
+void MakeColumn(HWND hDlg)
+{
+	LPCTSTR name[2] = { _T("이름"), _T("전화번호") };
+	LVCOLUMN lvCol = { 0, };
+	HWND hList;
+	hList = GetDlgItem(hDlg, IDC_LIST_MEMBER);
+	lvCol.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM;
+	lvCol.fmt = LVCFMT_LEFT;
+
+	for (int i = 0; i < 2; i++)
+	{
+		lvCol.cx = 90;
+		lvCol.iSubItem = i;
+		lvCol.pszText = (LPWSTR)name[i];
+		SendMessage(hList, LVM_INSERTCOLUMN, (WPARAM)i, (LPARAM)&lvCol);
+	}
+}
+
 BOOL CALLBACK Dlg6_9Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (iMsg)
 	{
 	case WM_INITDIALOG:
+		MakeColumn(hDlg);
 		return TRUE;
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
@@ -318,7 +338,7 @@ BOOL CALLBACK Dlg6_6Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		switch (LOWORD(wParam))
 		{
 		case IDC_BUTTON_INSERT:
-			GetDlgItemText(hDlg, IDC_EDIT_NAME, name, sizeof(name));
+			GetDlgItemText(hDlg, IDC_EDIT_NAME, name, sizeof(name) / sizeof(TCHAR));
 			SetDlgItemText(hDlg, IDC_EDIT_NAME, _T(""));
 			if (_tcscmp(name, _T("")) != 0)
 				SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)name);
@@ -328,7 +348,7 @@ BOOL CALLBACK Dlg6_6Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 			return FALSE;
 		case IDC_COMBO_LIST:
 			if (HIWORD(wParam) == CBN_SELCHANGE)
-				selection = SendMessage(hCombo, CB_GETCURSEL, 0, 0);
+				selection = (int)SendMessage(hCombo, CB_GETCURSEL, 0, 0);
 			//MessageBox(hDlg, _T("LDC_COMBO_LIST 메시지 발생"), _T(""), MB_OK);
 			break;
 		case IDCANCEL:
