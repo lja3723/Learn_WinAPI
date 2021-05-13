@@ -148,7 +148,7 @@
     <ResourceCompile Include="Learn_WinAPI.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex6-9.cpp" />
+    <ClCompile Include="ex6-10.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
