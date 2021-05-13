@@ -136,13 +136,35 @@ BOOL CALLBACK Dlg6_xProc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 
 BOOL CALLBACK Dlg6_9Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
+	TCHAR namebuff[64];
+	int sznamebuff = sizeof(namebuff) / sizeof(TCHAR);
+	static HWND hListBox;
+
 	switch (iMsg)
 	{
 	case WM_INITDIALOG:
+		hListBox = GetDlgItem(hDlg, IDC_LIST_NAME);
 		return TRUE;
 	case WM_COMMAND:
+		if (HIWORD(wParam) == EN_CHANGE)
+		{
+			GetDlgItemText(hDlg, IDC_EDIT_NAME, namebuff, sznamebuff);
+			if (_tcscmp(namebuff, _T("\r\n")) == 0)
+				SetDlgItemText(hDlg, IDC_EDIT_NAME, _T(""));
+			else if (namebuff[_tcslen(namebuff) - 2] == VK_RETURN)
+				SendMessage(hDlg, WM_COMMAND, (WPARAM)IDC_BUTTON_INSERT, 0);
+		}
 		switch (LOWORD(wParam))
 		{
+		case IDC_BUTTON_INSERT:
+			GetDlgItemText(hDlg, IDC_EDIT_NAME, namebuff, sznamebuff);
+			SetDlgItemText(hDlg, IDC_EDIT_NAME, _T(""));
+			if (_tcscmp(namebuff, _T("")) != 0)
+				SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)namebuff);
+			break;
+		case IDC_BUTTON_DELETE:
+			SendMessage(hListBox, LB_DELETESTRING, (WPARAM)SendMessage(hListBox, LB_GETCURSEL, 0, 0), 0);
+			break;
 		case IDCANCEL:
 			EndDialog(hDlg, 0);
 			break;
