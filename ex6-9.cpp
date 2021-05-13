@@ -139,14 +139,17 @@ void MakeColumn(HWND hDlg)
 {
 	LPCTSTR name[2] = { _T("이름"), _T("전화번호") };
 	LVCOLUMN lvCol = { 0, };
-	HWND hList;
-	hList = GetDlgItem(hDlg, IDC_LIST_MEMBER);
+	HWND hList = GetDlgItem(hDlg, IDC_LIST_MEMBER);
+
 	lvCol.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM;
 	lvCol.fmt = LVCFMT_LEFT;
 
+	RECT rt;
+	GetClientRect(hList, &rt);
+
 	for (int i = 0; i < 2; i++)
 	{
-		lvCol.cx = 90;
+		lvCol.cx = rt.right/2;
 		lvCol.iSubItem = i;
 		lvCol.pszText = (LPWSTR)name[i];
 		SendMessage(hList, LVM_INSERTCOLUMN, (WPARAM)i, (LPARAM)&lvCol);
