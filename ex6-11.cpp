@@ -148,10 +148,11 @@ void MakeColumn(HWND hDlg)
 
 	RECT rt;
 	GetClientRect(hList, &rt);
+	int cxRatio[2] = { 30, 70 };
 
 	for (int i = 0; i < 2; i++)
 	{
-		lvCol.cx = rt.right / 2;
+		lvCol.cx = rt.right * cxRatio[i] / 100;
 		lvCol.iSubItem = i;
 		lvCol.pszText = (LPWSTR)name[i];
 		SendMessage(hList, LVM_INSERTCOLUMN, (WPARAM)i, (LPARAM)&lvCol);
@@ -178,19 +179,20 @@ void InsertData(HWND hDlg)
 
 void InsertDataNew(HWND hDlg)
 {
-	LVITEM item;
 	HWND hList = GetDlgItem(hDlg, IDC_LIST_MEMBER);
 	TCHAR name[20];
 	TCHAR phone[20];
-	int count = ListView_GetItemCount(hList);
 
 	GetDlgItemText(hDlg, IDC_EDIT_NAME, name, sizeof(name) / sizeof(TCHAR));
 	GetDlgItemText(hDlg, IDC_EDIT_PHONE, phone, sizeof(phone) / sizeof(TCHAR));
+
 	SetDlgItemText(hDlg, IDC_EDIT_NAME, _T(""));
 	SetDlgItemText(hDlg, IDC_EDIT_PHONE, _T(""));
 	if (_tcscmp(name, _T("")) == 0) return;
 	if (_tcscmp(phone, _T("")) == 0) return;
 
+	int count = ListView_GetItemCount(hList);
+	LVITEM item;
 	item.mask = LVIF_TEXT;
 	item.iItem = count;
 	item.iSubItem = 0;
