@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++에서 생성한 포함 파일입니다.
-// Learn_WinAPI.rc에서 사용되고 있습니다.
+// Microsoft Visual C++ generated include file.
+// Used by Learn_WinAPI.rc
 //
 #define IDR_MENU4_5                     101
 #define IDR_MENU4_7                     102
@@ -81,7 +81,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        124
+#define _APS_NEXT_RESOURCE_VALUE        125
 #define _APS_NEXT_COMMAND_VALUE         40026
 #define _APS_NEXT_CONTROL_VALUE         1039
 #define _APS_NEXT_SYMED_VALUE           101
