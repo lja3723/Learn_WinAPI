@@ -15,12 +15,12 @@
 #define IDD_DIALOG6_7                   111
 #define IDD_DIALOG6_8                   112
 #define IDD_DIALOG6_9                   113
-#define IDD_DIALOG6_13                  117
 #define IDD_DIALOG6_1011                118
 #define IDD_DIALOG6_11                  118
 #define IDD_DIALOG6_1110                119
 #define IDD_DIALOG6_10                  119
 #define IDD_DIALOG6_12                  120
+#define IDD_DIALOG6_13                  121
 #define ID_BUTTON_PRINT                 1001
 #define ID_BUTTON_END                   1002
 #define ID_START                        1003
@@ -50,6 +50,7 @@
 #define IDC_LIST_NAME                   1031
 #define IDC_LIST_MEMBER                 1034
 #define IDC_EDIT_PHONE                  1036
+#define IDC_BUTTON_MODIFY               1038
 #define ID_FILENEW                      40001
 #define ID_FILEOPEN                     40002
 #define ID_FILESAVE                     40003
@@ -81,7 +82,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        120
 #define _APS_NEXT_COMMAND_VALUE         40025
-#define _APS_NEXT_CONTROL_VALUE         1038
+#define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
