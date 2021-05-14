@@ -1,5 +1,5 @@
-#define LearningChapter "ex6-11"
-//page 290
+#define LearningChapter "ex6-12"
+//page 292
 
 #include <Windows.h>
 #include <tchar.h>
@@ -24,6 +24,7 @@ BOOL CALLBACK Dlg6_8Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam);
 BOOL CALLBACK Dlg6_9Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam);
 BOOL CALLBACK Dlg6_10Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam);
 BOOL CALLBACK Dlg6_11Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam);
+BOOL CALLBACK Dlg6_12Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam);
 HINSTANCE g_hInstance;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int nCmdShow)
@@ -103,7 +104,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 			DialogBox(g_hInstance, MAKEINTRESOURCE(IDD_DIALOG6_11), hwnd, (DLGPROC)Dlg6_11Proc);
 			break;
 		case ID_6_12_MENU:
-			MessageBox(hwnd, _T("실습6-12 대화상자가 준비되지 않았습니다."), _T("알림"), MB_OK);
+			DialogBox(g_hInstance, MAKEINTRESOURCE(IDD_DIALOG6_12), hwnd, (DLGPROC)Dlg6_12Proc);
 			break;
 		case ID_6_13_MENU:
 			MessageBox(hwnd, _T("실습6-13 대화상자가 준비되지 않았습니다."), _T("알림"), MB_OK);
@@ -201,12 +202,33 @@ void InsertDataNew(HWND hDlg)
 	ListView_SetItemText(hList, count, 1, phone);
 }
 
-BOOL CALLBACK Dlg6_11Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
+int SelectItem(HWND hDlg, LPARAM lParam)
 {
+	LPNMLISTVIEW nlv = (LPNMLISTVIEW)lParam;
+	HWND hList = GetDlgItem(hDlg, IDC_LIST_MEMBER);
+	TCHAR name[20], phone[20];
+	ListView_GetItemText(hList, nlv->iItem, 0, name, 20);
+	ListView_GetItemText(hList, nlv->iItem, 1, phone, 20);
+	SetDlgItemText(hDlg, IDC_EDIT_NAME, name);
+	SetDlgItemText(hDlg, IDC_EDIT_PHONE, phone);
+	return nlv->iItem;
+}
+
+BOOL CALLBACK Dlg6_12Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
+{
+	LPNMHDR hdr;
+	HWND hList;
+
 	switch (iMsg)
 	{
 	case WM_INITDIALOG:
 		MakeColumn(hDlg);
+		return TRUE;
+	case WM_NOTIFY:
+		hdr = (LPNMHDR)lParam;
+		hList = GetDlgItem(hDlg, IDC_LIST_MEMBER);
+		if (hdr->hwndFrom == hList && hdr->code == LVN_ITEMCHANGING)
+			SelectItem(hDlg, lParam);
 		return TRUE;
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
@@ -531,3 +553,26 @@ BOOL CALLBACK Dlg6_10Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	}
 	return FALSE;
 }
+
+BOOL CALLBACK Dlg6_11Proc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lParam)
+{
+	switch (iMsg)
+	{
+	case WM_INITDIALOG:
+		MakeColumn(hDlg);
+		return TRUE;
+	case WM_COMMAND:
+		switch (LOWORD(wParam))
+		{
+		case IDC_BUTTON_INSERT:
+			InsertDataNew(hDlg);
+			break;
+		case IDCANCEL:
+			EndDialog(hDlg, 0);
+			break;
+		}
+		break;
+	}
+	return FALSE;
+}
+

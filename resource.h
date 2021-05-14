@@ -15,12 +15,12 @@
 #define IDD_DIALOG6_7                   111
 #define IDD_DIALOG6_8                   112
 #define IDD_DIALOG6_9                   113
-#define IDD_DIALOG6_12                  116
 #define IDD_DIALOG6_13                  117
 #define IDD_DIALOG6_1011                118
 #define IDD_DIALOG6_11                  118
 #define IDD_DIALOG6_1110                119
 #define IDD_DIALOG6_10                  119
+#define IDD_DIALOG6_12                  120
 #define ID_BUTTON_PRINT                 1001
 #define ID_BUTTON_END                   1002
 #define ID_START                        1003
