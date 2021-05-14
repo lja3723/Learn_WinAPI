@@ -138,6 +138,24 @@ BEGIN
     END
 END
 
+IDR_MENU5_1 MENU
+BEGIN
+    POPUP "파일"
+    BEGIN
+        MENUITEM "새글\tCtrl+N",                  ID_FILENEW
+        MENUITEM "열기\tCtrl+O",                  ID_FILEOPEN
+        MENUITEM "저장\tCtrl+S",                  ID_FILESAVE
+        MENUITEM "끝내기\tCtrl+Q",                 ID_EXIT
+    END
+    POPUP "편집"
+    BEGIN
+        MENUITEM "취소하기\tCtrl+Z",                ID_EDITUNDO
+        MENUITEM "복사하기\tCtrl+C",                ID_EDITCOPY
+        MENUITEM "붙여넣기\tCtrl+V",                ID_EDITPASTE
+    END
+    MENUITEM "도움말",                         ID_HELP
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -552,6 +570,23 @@ END
 IDD_DIALOG6_13 AFX_DIALOG_LAYOUT
 BEGIN
     0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR5_1 ACCELERATORS
+BEGIN
+    "C",            ID_EDITCOPY,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDITPASTE,           VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDITUNDO,            VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_EXIT,                VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILENEW,             VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILEOPEN,            VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILESAVE,            VIRTKEY, CONTROL, NOINVERT
 END
 
 #endif    // 한국어(대한민국) resources

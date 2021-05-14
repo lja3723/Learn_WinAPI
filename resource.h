@@ -15,12 +15,12 @@
 #define IDD_DIALOG6_7                   111
 #define IDD_DIALOG6_8                   112
 #define IDD_DIALOG6_9                   113
-#define IDD_DIALOG6_1011                118
 #define IDD_DIALOG6_11                  118
-#define IDD_DIALOG6_1110                119
 #define IDD_DIALOG6_10                  119
 #define IDD_DIALOG6_12                  120
 #define IDD_DIALOG6_13                  121
+#define IDR_MENU5_1                     122
+#define IDR_ACCELERATOR5_1              123
 #define ID_BUTTON_PRINT                 1001
 #define ID_BUTTON_END                   1002
 #define ID_START                        1003
@@ -75,14 +75,15 @@
 #define ID_6_11_MENU                    40022
 #define ID_6_12_MENU                    40023
 #define ID_6_13_MENU                    40024
+#define ID_HELP                         40025
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        120
-#define _APS_NEXT_COMMAND_VALUE         40025
-#define _APS_NEXT_CONTROL_VALUE         1040
+#define _APS_NEXT_RESOURCE_VALUE        124
+#define _APS_NEXT_COMMAND_VALUE         40026
+#define _APS_NEXT_CONTROL_VALUE         1039
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
