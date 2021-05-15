@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <tchar.h>
 #include "resource.h"
+#include <time.h>
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 static LPCTSTR WindowClassName = _T(LearningChapter) _T(" Class");
@@ -47,8 +48,32 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
+	HDC hdc, memdc;
+	PAINTSTRUCT ps;
+	static const int nBmp = 14;
+	static HBITMAP hBitmap[nBmp];
+	static HINSTANCE hInstance;
+	RECT rt_hDlg;
+
+	static int BmpNum;
+
 	switch (iMsg) {
 	case WM_CREATE:
+		hInstance = ((LPCREATESTRUCT)lParam)->hInstance;
+		for (int i = 0; i < nBmp; i++)
+			hBitmap[i] = LoadBitmap(hInstance, MAKEINTRESOURCE(IDB_BITMAP1 + i));
+		srand(time(NULL));
+		BmpNum = rand() % nBmp;
+		return 0;
+	case WM_PAINT:
+		hdc = BeginPaint(hwnd, &ps);
+		memdc = CreateCompatibleDC(hdc);
+
+		GetClientRect(hwnd, &rt_hDlg);
+		SelectObject(memdc, hBitmap[BmpNum]);
+		BitBlt(hdc, 0, 0, rt_hDlg.right, rt_hDlg.bottom, memdc, 0, 0, SRCCOPY);
+		DeleteDC(memdc);
+		EndPaint(hwnd, &ps);
 		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
