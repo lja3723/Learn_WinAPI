@@ -152,6 +152,8 @@
     <Image Include="bitmap10.bmp" />
     <Image Include="bitmap11.bmp" />
     <Image Include="bitmap12.bmp" />
+    <Image Include="bitmap13.bmp" />
+    <Image Include="bitmap_floor.bmp" />
     <Image Include="bitmap9_resize.bmp" />
     <Image Include="bitmap2.bmp" />
     <Image Include="bitmap2_resize.bmp" />
@@ -164,7 +166,7 @@
     <Image Include="bitmap9.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex5-5%28더블버퍼링%29.cpp" />
+    <ClCompile Include="ex5-5(더블버퍼링).cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

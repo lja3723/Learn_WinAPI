@@ -75,9 +75,15 @@
     <Image Include="bitmap12.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="bitmap_floor.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="bitmap13.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex5-5%28더블버퍼링%29.cpp">
+    <ClCompile Include="ex5-5(더블버퍼링).cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
