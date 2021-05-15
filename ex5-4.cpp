@@ -1,10 +1,9 @@
-#define LearningChapter "ex5-2"
-//page 197
+#define LearningChapter "ex5-4"
+//page 202
 
 #include <Windows.h>
 #include <tchar.h>
 #include "resource.h"
-#include <time.h>
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 static LPCTSTR WindowClassName = _T(LearningChapter) _T(" Class");
@@ -48,34 +47,51 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
+	static HINSTANCE hInstance;
+	static HBITMAP hBitmap, oldBitmap;
 	HDC hdc, memdc;
 	PAINTSTRUCT ps;
-	static const int nBmp = 14;
-	static HBITMAP hBitmap[nBmp];
-	static HINSTANCE hInstance;
-	RECT rt_hDlg;
+	RECT rt_hwnd;
 
-	static int BmpNum;
+	TCHAR word[] = _T("내년이 올까?");
+	static int xPos = 0;
+	static int yPos = 0;
 
 	switch (iMsg) {
 	case WM_CREATE:
 		hInstance = ((LPCREATESTRUCT)lParam)->hInstance;
-		for (int i = 0; i < nBmp; i++)
-			hBitmap[i] = LoadBitmap(hInstance, MAKEINTRESOURCE(IDB_BITMAP1 + i));
-		srand(time(NULL));
-		BmpNum = rand() % nBmp;
+		hBitmap = LoadBitmap(hInstance, MAKEINTRESOURCE(IDB_BITMAP6));
+		
+		SetTimer(hwnd, 1, 20, NULL);
 		return 0;
+
 	case WM_PAINT:
 		hdc = BeginPaint(hwnd, &ps);
 		memdc = CreateCompatibleDC(hdc);
+		oldBitmap = (HBITMAP)SelectObject(memdc, hBitmap);
 
-		GetClientRect(hwnd, &rt_hDlg);
-		SelectObject(memdc, hBitmap[BmpNum]);
-		BitBlt(hdc, 0, 0, rt_hDlg.right, rt_hDlg.bottom, memdc, 0, 0, SRCCOPY);
+		GetClientRect(hwnd, &rt_hwnd);
+		BitBlt(hdc, 0, 0, rt_hwnd.right, rt_hwnd.bottom, memdc, 0, 0, SRCCOPY);
+
+		TextOut(hdc, xPos, yPos, word, _tcslen(word));
+
+		SelectObject(memdc, oldBitmap);
 		DeleteDC(memdc);
 		EndPaint(hwnd, &ps);
 		return 0;
+
+	case WM_MOUSEMOVE:
+		xPos = LOWORD(lParam);
+		yPos = HIWORD(lParam);
+		return 0;
+	case WM_TIMER:
+		//GetClientRect(hwnd, &rt_hwnd);
+		//if (ypos > rt_hwnd.bottom) ypos = 0;
+		InvalidateRgn(hwnd, NULL, TRUE);
+		return 0;
+
 	case WM_DESTROY:
+		KillTimer(hwnd, 1);
 		PostQuitMessage(0);
 		return 0;
 	}
