@@ -1,4 +1,4 @@
-#define LearningChapter "ex5-2"
+#define LearningChapter "ex5-2and5-3"
 //page 197
 
 #include <Windows.h>
