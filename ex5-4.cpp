@@ -62,7 +62,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		hInstance = ((LPCREATESTRUCT)lParam)->hInstance;
 		hBitmap = LoadBitmap(hInstance, MAKEINTRESOURCE(IDB_BITMAP6));
 		
-		SetTimer(hwnd, 1, 2, NULL);
+		SetTimer(hwnd, 1, 20, NULL);
 		return 0;
 
 	case WM_PAINT:
@@ -87,7 +87,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	case WM_TIMER:
 		//GetClientRect(hwnd, &rt_hwnd);
 		//if (ypos > rt_hwnd.bottom) ypos = 0;
-		InvalidateRgn(hwnd, NULL, FALSE);
+		InvalidateRgn(hwnd, NULL, TRUE);
 		return 0;
 
 	case WM_DESTROY:
