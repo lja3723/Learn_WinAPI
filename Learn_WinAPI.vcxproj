@@ -148,7 +148,7 @@
     <ResourceCompile Include="Learn_WinAPI.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex5-5.cpp" />
+    <ClCompile Include="ex5-4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="bitmap1.bmp" />
