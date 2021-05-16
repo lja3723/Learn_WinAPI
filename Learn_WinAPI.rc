@@ -623,8 +623,6 @@ IDB_BITMAP11            BITMAP                  "bitmap11.bmp"
 
 IDB_BITMAP12            BITMAP                  "bitmap12.bmp"
 
-IDB_BITMAP_FLOOR        BITMAP                  "bitmap_floor.bmp"
-
 #endif    // 한국어(대한민국) resources
 /////////////////////////////////////////////////////////////////////////////
 

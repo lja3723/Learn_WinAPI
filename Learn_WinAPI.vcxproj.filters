@@ -75,9 +75,6 @@
     <Image Include="bitmap12.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="bitmap_floor.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="bitmap13.bmp">
       <Filter>리소스 파일</Filter>
     </Image>

@@ -153,7 +153,6 @@
     <Image Include="bitmap11.bmp" />
     <Image Include="bitmap12.bmp" />
     <Image Include="bitmap13.bmp" />
-    <Image Include="bitmap_floor.bmp" />
     <Image Include="bitmap9_resize.bmp" />
     <Image Include="bitmap2.bmp" />
     <Image Include="bitmap2_resize.bmp" />
