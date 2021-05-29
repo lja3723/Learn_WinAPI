@@ -80,7 +80,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex5-5(더블버퍼링).cpp">
+    <ClCompile Include="mouse_event_test.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

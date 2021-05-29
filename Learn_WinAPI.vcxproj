@@ -165,7 +165,7 @@
     <Image Include="bitmap9.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex5-5(더블버퍼링).cpp" />
+    <ClCompile Include="mouse_event_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
