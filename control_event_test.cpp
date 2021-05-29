@@ -58,8 +58,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	static int isLBUTTONDCLICK ;
 
 	static int isMOUSEMOVE ;
-	static int movePosX;
-	static int movePosY;
+		static int movePosX;
+		static int movePosY;
 
 	static int isRBUTTONDOWN;
 	static int isRBUTTONUP;
@@ -70,14 +70,18 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	static int isMBUTTONDCLICK;
 
 	static int isMOUSEWHEEL;
-	static int wheel_zDelta;
-	static int wheel_xPos;
-	static int wheel_yPos;
+		static int wheel_zDelta;
+		static int wheel_xPos;
+		static int wheel_yPos;
 
 	static int isKEYDOWN;
+		static WPARAM isKEYDOWNwParam = 0;
 	static int isKEYUP= -1;
+	static int isCHAR;
+		static WPARAM isCHARwParam = 0;
 
-	const int controlEvent = 13;
+	//static int 변수를 하나씩 추가할 때마다 1씩 더한다
+	const int controlEvent = 14;
 
 	switch (iMsg) {
 	case WM_CREATE:
@@ -149,6 +153,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 
 	case WM_KEYDOWN:
 		isKEYDOWN++;
+		isKEYDOWNwParam = wParam;
 		if (wParam == VK_SPACE) {
 			isLBUTTONDOWN = 0;
 			isLBUTTONUP = 0;
@@ -171,7 +176,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 			movePosY = 0;
 
 			isKEYDOWN = 0;
+			isKEYDOWNwParam = 0;
 			isKEYUP = -1;
+			isCHAR = -1;
+			isCHARwParam = 0;
 		}
 		return 0;
 
@@ -179,7 +187,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		isKEYUP++;
 		return 0;
 
-
+	case WM_CHAR:
+		isCHAR++;
+		isCHARwParam = wParam;
+		return 0;
 
 
 	case WM_TIMER:
@@ -200,8 +211,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 			_stprintf_s(buff[8], 256, _T("isMBUTTONUP(%d)           "), isMBUTTONUP);
 			_stprintf_s(buff[9], 256, _T("isMBUTTONDCLICK(%d)       "), isMBUTTONDCLICK);
 			_stprintf_s(buff[10], 256, _T("isMOUSEWHEEL(%d)          "), isMOUSEWHEEL);
-			_stprintf_s(buff[11], 256, _T("isKEYDOWN(%d)       "), isKEYDOWN);
-			_stprintf_s(buff[12], 256, _T("isKEYUP(%d)          "), isKEYUP);
+			_stprintf_s(buff[11], 256, _T("isKEYDOWN(%d) w:%d        "), isKEYDOWN, isKEYDOWNwParam);
+			_stprintf_s(buff[12], 256, _T("isKEYUP(%d)               "), isKEYUP);
+			_stprintf_s(buff[13], 256, _T("isCHAR(%d) w:%d           "), isCHAR, isCHARwParam);
 			for (int i = 0; i < controlEvent; i++)
 				TextOut(hdc, 0, i * 20, buff[i], _tcslen(buff[i]));
 
