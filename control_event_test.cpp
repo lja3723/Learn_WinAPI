@@ -1,4 +1,4 @@
-#define LearningChapter "Mouse Event Test"
+#define LearningChapter "Control Event Test"
 //page xxx
 
 #include <Windows.h>
@@ -74,8 +74,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	static int wheel_xPos;
 	static int wheel_yPos;
 
-	const int mouseEvent = 11;
+	static int isKEYDOWN;
+	static int isKEYUP= -1;
 
+	const int controlEvent = 13;
 
 	switch (iMsg) {
 	case WM_CREATE:
@@ -146,7 +148,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		return 0;
 
 	case WM_KEYDOWN:
-		if (wParam = VK_DELETE) {
+		isKEYDOWN++;
+		if (wParam == VK_SPACE) {
 			isLBUTTONDOWN = 0;
 			isLBUTTONUP = 0;
 			isLBUTTONDCLICK = 0;
@@ -166,7 +169,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 
 			movePosX = 0;
 			movePosY = 0;
+
+			isKEYDOWN = 0;
+			isKEYUP = -1;
 		}
+		return 0;
+
+	case WM_KEYUP:
+		isKEYUP++;
 		return 0;
 
 
@@ -177,7 +187,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		{
 		case 1:
 		{
-			TCHAR buff[mouseEvent][256];
+			TCHAR buff[controlEvent][256];
 			hdc = GetDC(hwnd);
 			_stprintf_s(buff[0], 256, _T("isLBUTTONDOWN(%d)         "), isLBUTTONDOWN);
 			_stprintf_s(buff[1], 256, _T("isLBUTTONUP(%d)           "), isLBUTTONUP);
@@ -190,7 +200,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 			_stprintf_s(buff[8], 256, _T("isMBUTTONUP(%d)           "), isMBUTTONUP);
 			_stprintf_s(buff[9], 256, _T("isMBUTTONDCLICK(%d)       "), isMBUTTONDCLICK);
 			_stprintf_s(buff[10], 256, _T("isMOUSEWHEEL(%d)          "), isMOUSEWHEEL);
-			for (int i = 0; i < mouseEvent; i++)
+			_stprintf_s(buff[11], 256, _T("isKEYDOWN(%d)       "), isKEYDOWN);
+			_stprintf_s(buff[12], 256, _T("isKEYUP(%d)          "), isKEYUP);
+			for (int i = 0; i < controlEvent; i++)
 				TextOut(hdc, 0, i * 20, buff[i], _tcslen(buff[i]));
 
 			_stprintf_s(buff[10], 256, _T("zDelta:%d, xPos:%d, yPos:%d                              "), wheel_zDelta, wheel_xPos, wheel_yPos);
@@ -201,7 +213,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		}
 			break;
 		}
-		break;
+		return 0;
 	case WM_DESTROY:
 		KillTimer(hwnd, 1);
 		PostQuitMessage(0);

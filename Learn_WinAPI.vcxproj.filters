@@ -80,7 +80,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mouse_event_test.cpp">
+    <ClCompile Include="control_event_test.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
